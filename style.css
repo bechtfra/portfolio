@@ -105,7 +105,7 @@ nav {
 .hero-tagline {
   font-size: 15px;
   color: var(--muted);
-  max-width: 340px;
+  max-width: 360px;
   text-align: right;
   line-height: 1.6;
 }
@@ -131,13 +131,13 @@ nav {
 .project-grid {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 8px;
   margin-bottom: 80px;
 }
 
 .grid-row {
   display: grid;
-  gap: 3px;
+  gap: 8px;
 }
 
 .row-7-5  { grid-template-columns: 7fr 5fr; height: 580px; }
@@ -392,7 +392,6 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  border-bottom: 1px solid var(--rule);
 }
 
 .detail-eyebrow {
@@ -461,12 +460,11 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  border-top: 1px solid var(--rule);
+  
 }
 
 .detail-body-full {
   padding: 64px 0;
-  border-top: 1px solid var(--rule);
   max-width: 760px;
 }
 
@@ -506,7 +504,7 @@ footer {
 .di-parallax {
   position: relative;
   overflow: hidden;
-  height: 580px;
+  height: 680px;
   margin-bottom: 3px;
   width: 100vw;
   left: 50%;
@@ -540,7 +538,7 @@ footer {
 .di-bento {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 3px;
+  gap: 8px;
   margin-bottom: 64px;
 }
 
@@ -585,8 +583,8 @@ footer {
 .di-two {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  margin-bottom: 3px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .di-two img {
@@ -598,8 +596,8 @@ footer {
 .di-three {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 3px;
-  margin-bottom: 3px;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 .di-three img {
