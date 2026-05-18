@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Franziska Bechtold — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ECEAE3;
+      --ink: #1a1a1a;
+      --muted: #888;
+      --display: 'Barlow Condensed', sans-serif;
+    }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+    }
+    .gate {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    .gate-logo {
+      height: 34px;
+      width: auto;
+      margin-bottom: 64px;
+      opacity: 0.85;
+    }
+    .gate-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 8vw, 64px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .gate-sub {
+      font-size: 15px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .gate-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 14px 18px;
+      background: transparent;
+      border: 1.5px solid var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--ink);
+      outline: none;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+    .gate-input::placeholder {
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .gate-input:focus {
+      border-color: var(--ink);
+    }
+    .gate-btn {
+      width: 100%;
+      padding: 14px 24px;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      font-family: var(--display);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .gate-btn:hover { opacity: 0.8; }
+    .gate-error {
+      font-size: 13px;
+      color: var(--ink);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+      min-height: 20px;
+    }
+    .gate-error.visible { opacity: 1; }
+  </style>
+</head>
+<body>
+<div class="gate">
+  <img src="logo.png" alt="Franziska Bechtold" class="gate-logo">
+  <h1 class="gate-title">Portfolio</h1>
+  <p class="gate-sub">Enter the password to continue</p>
+  <form class="gate-form" onsubmit="checkPassword(event)">
+    <input class="gate-input" type="password" id="pw" placeholder="Password" autocomplete="current-password" autofocus>
+    <button class="gate-btn" type="submit">Enter</button>
+    <p class="gate-error" id="err">Wrong password. Try again.</p>
+  </form>
+</div>
+<script>
+  // If already authenticated, go straight to the portfolio
+  if (localStorage.getItem('pflio_auth') === 'granted') {
+    window.location.replace('index.html');
+  }
+
+  function checkPassword(e) {
+    e.preventDefault();
+    var pw = document.getElementById('pw').value;
+    if (pw === 'nicetomeetyou26') {
+      localStorage.setItem('pflio_auth', 'granted');
+      window.location.replace('index.html');
+    } else {
+      var err = document.getElementById('err');
+      err.classList.add('visible');
+      document.getElementById('pw').value = '';
+      document.getElementById('pw').focus();
+    }
+  }
+</script>
+</body>
+</html>
